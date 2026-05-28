@@ -439,17 +439,6 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, onClick }) => {
 
 // ── Modal (교육 자료) ──
 
-{/* 출처 */}
-<div style={{
-  marginTop: 48, padding: "20px 24px",
-  borderTop: "1px solid #e9ecef",
-  fontSize: "0.78rem", color: "#888", lineHeight: 1.8,
-}}>
-  <strong style={{ color: "#555" }}>출처</strong><br />
-  - 2023 식품안전·영양교육 초등학교 교재 및 지침서 (식약처)<br />
-  - 아동비만예방사업 '건강한 돌봄놀이터' 영양프로그램 영상 교육자료 (한국건강증진개발원, 보건복지부)
-</div>
-
 interface ModalProps { idx: number | null; onClose: () => void; }
 const Modal: React.FC<ModalProps> = ({ idx, onClose }) => {
   if (idx === null) return null;
@@ -641,6 +630,16 @@ export default function EducationPage({ onAddPoints }: EducationPageProps) {
       </div>
 
       <Modal idx={modalIdx} onClose={() => setModalIdx(null)} />
+         {/* 출처 */}
+      <div style={{
+        marginTop: 48, padding: "20px 24px",
+        borderTop: "1px solid #e9ecef",
+        fontSize: "0.78rem", color: "#888", lineHeight: 1.8,
+      }}>
+        <strong style={{ color: "#555" }}>출처</strong><br />
+        - 2023 식품안전·영양교육 초등학교 교재 및 지침서 (식약처)<br />
+        - 아동비만예방사업 '건강한 돌봄놀이터' 영양프로그램 영상 교육자료 (한국건강증진개발원, 보건복지부)
+      </div>
     </div>
   );
 }
