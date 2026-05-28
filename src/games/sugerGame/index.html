@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>각설탕게임 | 내 손안의 영양 짝꿍</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="header">
+    <div class="header-left">
+      <div class="avatar"></div>
+      <span class="site-title">내 손안의 영양 짝꿍</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#">Home</a>
+      <a href="#">Games</a>
+      <a href="#">Lessons</a>
+      <a href="#">Leaderboard</a>
+      <a href="#">Support</a>
+    </nav>
+    <div class="header-search">
+      <input type="text" placeholder="Search in site" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <ul>
+      <li>🍓 영양 친구</li>
+      <li>🌿 미니 게임</li>
+      <li>🏆 나의 건강 캐릭터</li>
+      <li>🌱 영양 배움터</li>
+      <li>🍒 나의 영양 기록</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- SCREEN 1: 시작화면 -->
+    <div id="screen-start" class="screen active">
+      <div class="start-box">
+        <h1 class="game-title">각설탕게임: 내가 먹는 음식 속<br/>각설탕은?</h1>
+        <p class="game-desc">음식 이미지를 확인하고 각설탕을 접시에 올려 정확히 맞춰보세요.</p>
+        <button class="btn-dark" id="btn-start">라운드 시작</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: 게임화면 -->
+    <div id="screen-game" class="screen">
+      <div class="game-layout">
+        <div class="game-left">
+          <h2 class="section-title">퀴즈 카드</h2>
+          <p class="hint-text" id="hint-text">3g당 각설탕 1개</p>
+          <button class="btn-outline" id="btn-next-hint">다음</button>
+
+          <!-- 각설탕 조절 -->
+          <div class="sugar-counter">
+            <div class="sugar-img">
+              <img src="sugar_cube.png" alt="각설탕" onerror="this.style.display='none';this.parentElement.innerHTML='🧊'"/>
+            </div>
+            <button class="counter-btn" id="btn-minus">－</button>
+            <div class="counter-center">
+              <div class="counter-circle">
+                <span id="sugar-count">1</span>
+              </div>
+              <div class="counter-label">현재 선택</div>
+              <div class="counter-default">기본값 1</div>
+            </div>
+            <button class="counter-btn" id="btn-plus">＋</button>
+          </div>
+
+          <button class="btn-dark btn-submit" id="btn-submit">정답 확인</button>
+        </div>
+
+        <div class="game-right">
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-card-img" id="quiz-card-img">
+              <!-- food image placeholder -->
+              <div class="food-placeholder" id="food-placeholder"></div>
+            </div>
+            <div class="quiz-card-info">
+              <div class="food-name" id="food-name">콜라</div>
+              <div class="food-state" id="food-state">item=cola, state=quiz</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-bar">
+        <div class="round-info" id="round-info">라운드 1 / 10</div>
+        <button class="btn-dark btn-end" id="btn-end-game">게임 마치기</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: 정답화면 -->
+    <div id="screen-correct" class="screen">
+      <div class="result-layout">
+        <div class="result-left">
+          <h2 class="section-title">정답/오답 피드백</h2>
+          <p class="result-desc">정확히 맞추면 다음 음식으로 넘어가요.</p>
+          <button class="btn-dark" id="btn-correct-next">다음 음식</button>
+        </div>
+        <div class="result-card correct-card">
+          <div class="result-card-img"></div>
+          <div class="result-card-text">
+            <div class="result-tag correct-tag">정답</div>
+            <strong>맞았어요!</strong>
+            <p id="correct-msg">각설탕 13개가 정확해요. 다음 음식으로 이동합니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <button class="btn-dark btn-end" id="btn-end-correct">게임 마치기</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: 오답화면 -->
+    <div id="screen-wrong" class="screen">
+      <div class="result-layout">
+        <div class="result-left">
+          <h2 class="section-title">다시 도전 화면 (오답 예시)</h2>
+          <p class="result-desc">틀렸다면 수치에 맞춰 다시 옮겨보세요.</p>
+          <div class="btn-row">
+            <button class="btn-outline" id="btn-retry">다시 도전하기</button>
+            <button class="btn-dark" id="btn-wrong-next">다음 음식</button>
+          </div>
+        </div>
+        <div class="result-card wrong-card">
+          <div class="result-card-img"></div>
+          <div class="result-card-text">
+            <div class="result-tags">
+              <span class="result-tag">오답</span>
+              <span class="result-tag">재도전</span>
+            </div>
+            <strong>틀렸어요!</strong>
+            <p id="wrong-msg">조금 더 맞춰볼까요? 음식의 설탕 그램 → 각설탕 개수 기준을 다시 확인해요.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <button class="btn-dark btn-end" id="btn-end-wrong">게임 마치기</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 5: 게임종료화면 -->
+    <div id="screen-end" class="screen">
+      <div class="end-box">
+        <h2 class="section-title">게임 종료!</h2>
+        <p class="result-desc" id="end-score-msg">10라운드가 끝났어요. 수고하셨습니다! 🎉</p>
+        <div class="score-display">
+          <span>최종 점수</span>
+          <strong id="final-score">0 / 10</strong>
+        </div>
+        <div class="btn-row end-btns">
+          <button class="btn-dark" id="btn-restart">다시 시작</button>
+          <button class="btn-outline" id="btn-go-home">게임 종료</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

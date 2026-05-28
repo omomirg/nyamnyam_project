@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>식판꾸미기 - 내 손안의 영양 짝꿍</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-text">내 손안의 영양 짝꿍</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Games</a>
+      <a href="#">Lessons</a>
+      <a href="#">Leaderboard</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="nav-search">
+      <input type="text" placeholder="Search in site" />
+      <span class="search-icon">🔍</span>
+    </div>
+  </nav>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a href="#" class="sidebar-item">🍓 영양 친구</a>
+      <a href="#" class="sidebar-item">🥗 미니 게임</a>
+      <a href="#" class="sidebar-item">🏆 나의 건강 캐릭터</a>
+      <a href="#" class="sidebar-item">🌿 영양 배움터</a>
+      <a href="#" class="sidebar-item">🍒 나의 영양 기록</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- ===== 시작 화면 ===== -->
+      <section id="screen-start" class="screen active">
+        <div class="start-center">
+          <h1 class="game-title">식판꾸미기</h1>
+          <p class="game-subtitle">식판 6칸에 원하는 음식을 담아 분류군 다양성으로 점수를 받아요.</p>
+          <button class="btn-primary" onclick="showScreen('screen-game')">식판 꾸미기 시작</button>
+          <button class="btn-ghost" onclick="showScreen('screen-info')">게임 규칙</button>
+        </div>
+      </section>
+
+      <!-- ===== 게임 설명 화면 ===== -->
+      <section id="screen-info" class="screen">
+        <div class="info-layout">
+          <div class="info-left">
+            <h2 class="section-title">게임 설명</h2>
+            <p class="info-desc">식판에 들어간 분류군 수에 따라 점수가 달라져요.</p>
+            <button class="btn-primary" onclick="showScreen('screen-game')">게임 시작하기</button>
+
+            <div class="score-cards">
+              <div class="score-card gold">
+                <div class="score-card-title">5가지 분류군 모두 포함</div>
+                <div class="score-card-desc">100점! 참 잘했어요! 앞으로도 건강한 식사를 규칙적으로 적당히 맛있게 먹어요</div>
+                <span class="score-badge">100점</span>
+              </div>
+              <div class="score-card silver">
+                <div class="score-card-title">4가지 분류군 포함</div>
+                <div class="score-card-desc">70점! 조금 아쉽네요! 더 건강한 식사를 위해 노력해봐요</div>
+                <span class="score-badge">70점</span>
+              </div>
+              <div class="score-card bronze">
+                <div class="score-card-title">3가지 분류군 포함</div>
+                <div class="score-card-desc">40점! 노력이 필요해요! 다양한 음식을 섭취하면 좋을 것 같아요. 천천히 하나씩 실천해봐요.</div>
+                <span class="score-badge">40점</span>
+              </div>
+              <div class="score-card none">
+                <div class="score-card-title">1~2가지 분류군 포함</div>
+                <div class="score-card-desc">0점! 오늘 식사는 건강하지 않아요! 영양에 대한 공부가 필요해요</div>
+                <span class="score-badge">0점</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-right">
+            <div class="food-groups-grid">
+              <div class="food-group-card">
+                <div class="food-group-icon">🌾</div>
+                <div class="food-group-name">곡류</div>
+                <div class="food-group-items">잡곡밥, 옥수수, 떡<br/>감자, 식빵, 고구마, 잔치국수</div>
+              </div>
+              <div class="food-group-card">
+                <div class="food-group-icon">🥩</div>
+                <div class="food-group-name">고기, 생선, 달걀, 콩류</div>
+                <div class="food-group-items">닭갈비, 제육볶음, 소불고기<br/>두부조림, 달걀 프라이, 검은콩 조림, 고등어 구이</div>
+              </div>
+              <div class="food-group-card">
+                <div class="food-group-icon">🥦</div>
+                <div class="food-group-name">채소류</div>
+                <div class="food-group-items">당근, 버섯, 고사리 무침, 오이, 브로콜리<br/>미역줄기 무침, 오이고추된장 무침, 김치</div>
+              </div>
+              <div class="food-group-card">
+                <div class="food-group-icon">🍉</div>
+                <div class="food-group-name">과일류</div>
+                <div class="food-group-items">사과, 포도, 귤, 키위<br/>자두, 복숭아, 자몽, 딸기</div>
+              </div>
+              <div class="food-group-card">
+                <div class="food-group-icon">🥛</div>
+                <div class="food-group-name">우유, 유제품류</div>
+                <div class="food-group-items">우유, 치즈<br/>떠먹는 요구르트, 마시는 요구르트</div>
+              </div>
+              <div class="food-group-card">
+                <div class="food-group-icon">🍜</div>
+                <div class="food-group-name">국 종류</div>
+                <div class="food-group-items">김치찌개 (채소), 미역국 (채소), 콩나물국 (채소)<br/>청국장 (고기,생선,달걀,콩류)<br/>두부된장국 (고기,생선,달걀,콩류)<br/>비지찌개 (고기,생선,달걀,콩류)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 게임 화면 ===== -->
+      <section id="screen-game" class="screen">
+        <div class="game-layout">
+          <!-- 식판 영역 -->
+          <div class="tray-area">
+            <div class="tray-wrapper">
+              <div class="tray">
+                <div class="tray-slots-top">
+                  <div class="tray-slot" id="slot-0" ondragover="allowDrop(event)" ondrop="dropFood(event, 0)">
+                    <span class="slot-hint">여기에 놓기</span>
+                  </div>
+                  <div class="tray-slot" id="slot-1" ondragover="allowDrop(event)" ondrop="dropFood(event, 1)">
+                    <span class="slot-hint">여기에 놓기</span>
+                  </div>
+                  <div class="tray-slot" id="slot-2" ondragover="allowDrop(event)" ondrop="dropFood(event, 2)">
+                    <span class="slot-hint">여기에 놓기</span>
+                  </div>
+                  <div class="tray-slot" id="slot-3" ondragover="allowDrop(event)" ondrop="dropFood(event, 3)">
+                    <span class="slot-hint">여기에 놓기</span>
+                  </div>
+                </div>
+                <div class="tray-slots-bottom">
+                  <div class="tray-slot wide" id="slot-4" ondragover="allowDrop(event)" ondrop="dropFood(event, 4)">
+                    <span class="slot-hint">여기에 놓기</span>
+                  </div>
+                  <div class="tray-slot round" id="slot-5" ondragover="allowDrop(event)" ondrop="dropFood(event, 5)">
+                    <span class="slot-hint">여기에 놓기</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tray-status">
+              <span id="filled-count">0</span>/6 칸 채워짐
+            </div>
+          </div>
+
+          <!-- 음식 선택 영역 -->
+          <div class="food-picker-area">
+            <div class="food-picker-tabs">
+              <button class="tab-btn active" onclick="showFoodPage(0)">◀</button>
+              <button class="tab-btn" onclick="showFoodPage(1)">▶</button>
+            </div>
+            <div class="food-grid-container">
+              <div class="food-grid" id="food-page-0"></div>
+              <div class="food-grid hidden" id="food-page-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-bottom-bar">
+          <button class="btn-clear" onclick="clearTray()">초기화</button>
+          <button class="btn-score" onclick="showScore()">점수 보기</button>
+        </div>
+      </section>
+
+      <!-- ===== 결과 화면 ===== -->
+      <section id="screen-result" class="screen">
+        <div class="result-center">
+          <h2 class="result-title">현재 점수</h2>
+          <div class="result-score-box">
+            <div class="result-score-label">총점</div>
+            <div class="result-score-value" id="result-score-value">0점</div>
+          </div>
+          <div class="result-message" id="result-message"></div>
+          <div class="result-summary" id="result-summary"></div>
+        </div>
+        <div class="result-actions">
+          <button class="btn-secondary" onclick="restartGame()">다시 시작하기</button>
+          <button class="btn-primary" onclick="showScreen('screen-start')">게임 마치기</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

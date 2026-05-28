@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 손안의 영양 짝꿍 - O/X 게임</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-circle"></div>
+      <span class="logo-text">내 손안의 영양 짝꿍</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#">Home</a>
+      <a href="#">Games</a>
+      <a href="#">Lessons</a>
+      <a href="#">Leaderboard</a>
+      <a href="#">Support</a>
+      <div class="search-box">
+        <input type="text" placeholder="Search in site" />
+        <span class="search-icon">🔍</span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <ul>
+        <li><span class="emoji">🍎</span> 영양 친구</li>
+        <li><span class="emoji">🥗</span> 미니 게임</li>
+        <li><span class="emoji">🏆</span> 나의 건강 캐릭터</li>
+        <li><span class="emoji">🥦</span> 영양 배움터</li>
+        <li><span class="emoji">🍑</span> 나의 영양 기록</li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- 시작화면 -->
+      <section id="screen-start" class="screen active">
+        <div class="center-box game-center-box">
+          <h1 class="game-title">O/X 게임: 한 문장씩 10번</h1>
+          <p class="game-desc">맞는 말이면 O, 틀린 말이면 X! 총 10문장을 끝내면 최종 점수를 확인해요.</p>
+          <button class="btn-primary" id="btn-start">O/X 시작</button>
+        </div>
+      </section>
+
+      <!-- 게임화면 -->
+      <section id="screen-game" class="screen">
+        <div class="center-box">
+          <p class="progress-label" id="progress-text">문장 1 / 10</p>
+          <div class="sentence-box">
+            <p class="sentence-text" id="sentence-text"></p>
+          </div>
+          <div class="ox-buttons">
+            <button class="btn-o" id="btn-o">O 카드</button>
+            <button class="btn-x" id="btn-x">X 카드</button>
+          </div>
+        </div>
+        <div class="bottom-action">
+          <button class="btn-end" id="btn-end-game">게임 마치기</button>
+        </div>
+      </section>
+
+      <!-- 정답화면 -->
+      <section id="screen-correct" class="screen">
+        <div class="wrong-only-layout">
+          <h2 class="result-title">정답</h2>
+          <div class="correct-feedback" id="correct-feedback"></div>
+          <button class="btn-primary" id="btn-next-correct">다음으로 넘어가기</button>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 오답화면 -->
+      <section id="screen-wrong" class="screen">
+        <div class="wrong-only-layout">
+          <h2 class="result-title">오답</h2>
+          <div class="wrong-explanation" id="wrong-explanation"></div>
+          <button class="btn-primary" id="btn-next-wrong">다음으로 넘어가기</button>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 종료화면 -->
+      <section id="screen-end" class="screen">
+        <div class="result-layout">
+          <div class="result-text-area">
+            <h2 class="result-title">O/X 최종 점수</h2>
+            <p class="result-desc">정답 개수에 따라 다른 메시지가 나와요.</p>
+            <div class="end-buttons">
+              <button class="btn-primary" id="btn-restart">다시 시작하기</button>
+              <button class="btn-outline" id="btn-end-final">게임 마치기</button>
+            </div>
+          </div>
+          <div class="result-card end-card">
+            <div class="result-card-body end-only">
+              <p class="result-card-title" id="end-title"></p>
+              <p class="result-card-desc" id="end-desc"></p>
+              <div class="end-tags" id="end-tags"></div>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

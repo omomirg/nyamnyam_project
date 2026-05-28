@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>인식게임</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 전체 레이아웃 -->
+  <div class="layout">
+
+    <!-- 사이드바 -->
+    <aside class="sidebar">
+      <h1 class="logo">내 손안의 영양 짝꿍</h1>
+
+      <ul class="menu">
+        <li>🍅 영양 친구</li>
+        <li>🧩 미니 게임</li>
+        <li>🏆 나의 건강 캐릭터</li>
+        <li>📚 영양 배움터</li>
+        <li>🧠 나의 영양 기록</li>
+      </ul>
+    </aside>
+
+    <!-- 메인 -->
+    <main class="main-content">
+
+      <!-- 상단 메뉴 -->
+      <header class="topbar">
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Games</a>
+          <a href="#">Lessons</a>
+          <a href="#">Leaderboard</a>
+          <a href="#">Support</a>
+        </nav>
+      </header>
+
+      <!-- 시작 화면 -->
+      <section id="start-screen" class="screen active">
+        <div class="center-box">
+
+          <h2>인식게임: 간식 대체 게임</h2>
+
+          <p>
+            카드를 뒤집고 올바른 '대체식'을 확인하세요.
+          </p>
+
+          <button id="start-btn" class="outline-btn">
+            게임 시작
+          </button>
+
+        </div>
+      </section>
+
+      <!-- 진행방식 화면 -->
+      <section id="guide-screen" class="screen">
+
+        <div class="guide-layout">
+
+          <!-- 왼쪽 -->
+          <div class="guide-left">
+            <h2>기본 진행 방식</h2>
+
+            <p>
+              라운드마다 제시되는 힌트를 보고
+              해당되는 항목을 선택합니다.
+            </p>
+
+            <div class="button-group">
+              <button id="back-btn" class="outline-btn">
+                이전
+              </button>
+
+              <button id="next-btn" class="black-btn">
+                다음
+              </button>
+            </div>
+          </div>
+
+          <!-- 오른쪽 -->
+          <div class="guide-right">
+
+            <div class="guide-card">
+              <div class="guide-image"></div>
+
+              <div>
+                <h3>1) 힌트 확인</h3>
+                <p>화면의 텍스트 힌트를 확인하세요.</p>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-image"></div>
+
+              <div>
+                <h3>2) 선택하기</h3>
+                <p>올바른 건강 음식을 선택합니다.</p>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-image"></div>
+
+              <div>
+                <h3>3) 결과 반영</h3>
+                <p>선택 결과가 바로 적용됩니다.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 게임 화면 -->
+      <section id="game-screen" class="screen">
+
+        <div class="game-header">
+          <h2>카드 6장</h2>
+
+          <p>
+            카드를 클릭하면 건강한 음식으로 변경됩니다.
+          </p>
+        </div>
+
+        <!-- 카드 영역 -->
+        <div id="card-container"></div>
+
+        <div class="game-bottom">
+          <button id="finish-btn" class="black-btn">
+            게임 마치기
+          </button>
+        </div>
+
+      </section>
+
+      <!-- 결과 화면 -->
+      <section id="result-screen" class="screen">
+
+        <div class="result-layout">
+
+          <!-- 왼쪽 -->
+          <div class="result-left">
+
+            <h2>인식게임 결과 안내</h2>
+
+            <p>
+              뒤집힌 카드가 건강한 음식으로 변경되었습니다.
+            </p>
+
+            <div class="button-group">
+
+              <button id="restart-btn" class="outline-btn">
+                다시 시작
+              </button>
+
+              <button id="exit-btn" class="black-btn">
+                게임 종료
+              </button>
+
+            </div>
+
+          </div>
+
+          <!-- 오른쪽 -->
+          <div class="result-card">
+
+            <div class="guide-image"></div>
+
+            <div>
+              <h3>이번 라운드</h3>
+
+              <p>
+                모든 카드를 확인했습니다!
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
