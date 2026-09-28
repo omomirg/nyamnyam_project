@@ -4,7 +4,7 @@ AI 챗봇과 게임으로 만드는 초등학생 식습관 개선 웹 서비스
 
 바롬 교양 팀 프로젝트 (6인, 먹분석팀) | TypeScript, Vite, Tailwind CSS, Gemini API, Vercel
 
-🔗 **웹사이트:** https://nyamnyam-project.vercel.app
+🔗 https://nyamnyam-project.vercel.app
 
 **담당:** AI 챗봇(당근이) 개발, 게임 개발, 전체 페이지 통합과 배포
 
