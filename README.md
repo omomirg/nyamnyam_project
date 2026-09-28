@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# 내 손 안에 영양 짝꿍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI 챗봇과 게임으로 만드는 초등학생 식습관 개선 웹 서비스
 
-Currently, two official plugins are available:
+바롬 교양 팀 프로젝트 (6인, 먹분석팀) | TypeScript, Vite, Tailwind CSS, Gemini API, Vercel
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **웹사이트:** https://nyamnyam-project.vercel.app
 
-## React Compiler
+**담당:** AI 챗봇(당근이) 개발, 게임 개발, 전체 페이지 통합과 배포
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<br>
 
-## Expanding the ESLint configuration
+## 1. 배경
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **복합적인 원인:** 아동기 식생활 불균형은 가정(돌봄 공백, 외식 일상화), 환경(고열량 식품 광고, 편의점 접근성), 개인(아침 결식, 패스트푸드 섭취 증가), 사회(공공 관리 체계 부재) 요인이 함께 작용해 심해지고 있습니다.
+- **기존 서비스의 한계:** 시중 식단 관리 서비스는 대부분 성인 대상입니다. 칼로리 중심의 정보 전달형이라, 아이들이 스스로 쓰기 어렵습니다.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<br>
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 2. 주요 기능
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| 기능 | 내용 |
+|---|---|
+| **AI 챗봇 당근이** | 아이 눈높이에 맞춘 말투로 먼저 말을 걸고("지난 3일 동안 채소나 과일을 먹었어?"), 대화 내용을 바탕으로 맞춤 피드백을 줍니다. |
+| **미니 게임** | O/X 영양 퀴즈, 식판 꾸미기, 나만의 건강 캐릭터 키우기 |
+| **기록** | 식단과 간식 섭취를 기록하고, 기록이 쌓이면 캐릭터가 성장합니다. |
+
+주입식 교육 대신, 아이가 기록하고 피드백을 받으며 스스로 식습관을 관리하도록 설계했습니다.
+
+<br>
+
+## 3. 진행 과정
+
+1. **문제 분석과 기획:** 4가지 요인을 진단하고 서비스 콘셉트를 정했습니다.
+2. **웹 서비스 구현:** 캐릭터, 게임, 챗봇 페이지를 개발해 배포했습니다.
+3. **현장 교육:** 지역 아동센터(우리동네 키움센터)를 방문해 초등 2~5학년 대상 교육을 진행했습니다.
+4. **효과 측정:** 교육 직후 설문으로 효과를 확인하고 개선점을 정리했습니다.
+
+<br>
+
+## 4. 결과 (교육 직후 설문)
+
+| 문항 | 결과 |
+|---|---|
+| 교육 자료를 이해하기 쉬웠나요? | 긍정 응답 100% |
+| 교육 전후 식습관에 대한 생각이 바뀌었나요? | 긍정 변화 100% |
+| 홈페이지로 관리하는 방식이 새롭고 재미있었나요? | 100% |
+| 앞으로도 접속해 스스로 관리할 계획인가요? | 재접속 의향 88% (매일 13%, 가끔 75%) |
+
+<br>
+
+## 5. 실행 방법
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+프로젝트 폴더에 `.env` 파일을 만들고 Gemini API 키를 넣어야 챗봇이 작동합니다.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+VITE_GEMINI_API_KEY=발급받은_키
+```
+
+<br>
+
+## 6. 팀 구성과 역할
+
+| 역할 | 내용 |
+|---|---|
+| 팀 총괄 | 기관 교육 자료 제작, 방문 교육 진행 |
+| 운영 | 활동 지원금 관리, 추가 자료 및 설문지 제작 |
+| 게임 디자인 | 웹 게임 구성과 디자인, 인포그래픽 제작 |
+| 웹 화면 | 메인 페이지, 캐릭터 페이지 구현 |
+| **AI 챗봇, 게임, 배포 (본인)** | **Gemini 기반 챗봇 개발, 게임 개발, 페이지 통합과 Vercel 배포** |
+| 게임 개발 | 게임 구성과 개발 |
+
+<br>
+
+## 참고 자료
+
+- 식품의약품안전처 (2023). 식품안전, 영양교육 초등학교 교재 및 지침서.
+- 한국건강증진개발원, 보건복지부. 아동비만예방사업 '건강한 돌봄놀이터' 영양프로그램 영상 교육자료.
